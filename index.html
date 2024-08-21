@@ -1,0 +1,22 @@
+import sys
+import os
+
+def main():
+    command = sys.argv[1]
+    if command == "init":
+        init()
+    
+    elif command == "hash-object":
+        if not os.path.isdir(sys.argv[2]):
+            object_type = "blob"
+            hash_object(sys.argv[2], 'blob')  # hash_object function to be implemented
+        elif os.path.isdir(sys.argv[2]):
+            object_type = "tree"
+            hash_object(sys.argv[2], 'tree')
+        else:
+            print("Not a valid file")
+
+    elif command == "commit":
+        if sys.argv[2] == "-m":
+            if sys.argv[3]: 
+                commit(sys.argv[3])
