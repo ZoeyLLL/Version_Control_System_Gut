@@ -20,3 +20,24 @@ def main():
         if sys.argv[2] == "-m":
             if sys.argv[3]: 
                 commit(sys.argv[3])
+    
+    elif command == "cat-file":
+        oid = sys.argv[2]
+        cat_file(oid)
+
+    else:
+        print("Unknown command: " + command)
+        sys.exit(1)
+
+
+def init():
+    print("Initializing gut repository")
+    os.mkdir(".gut")
+    os.mkdir(".gut/objects")
+    print("Initialized empty gut repository in .gut")
+
+
+def hash_object(gut_object, object_type):
+
+
+    
